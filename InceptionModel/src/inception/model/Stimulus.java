@@ -39,8 +39,14 @@ public abstract class Stimulus extends Step implements Animatable {
     }
     
     @Override
-    public void run() {
+    public final void run() {
         play();
+    }
+
+    @Override
+    public void interrupt() {
+        end();
+        super.interrupt();
     }
     
     protected abstract void execute();
