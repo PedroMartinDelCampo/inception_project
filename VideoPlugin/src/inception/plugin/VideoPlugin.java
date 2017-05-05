@@ -38,7 +38,6 @@ public class VideoPlugin implements Plugin{
 
     @Override
     public Node createPreview(Stimulus s) {
-        
         Media media = new Media(MEDIA_URL);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -51,7 +50,7 @@ public class VideoPlugin implements Plugin{
     }
 
     @Override
-    public Node createPropoertiesPane(Stimulus s) {
+    public Node createPropertiesPane(Stimulus s) {
         final TextField textField = new TextField();
         return textField;
     }

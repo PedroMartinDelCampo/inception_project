@@ -52,7 +52,7 @@ public class TestPlugin implements Plugin {
     }
 
     @Override
-    public Node createPropoertiesPane(Stimulus s) {
+    public Node createPropertiesPane(Stimulus s) {
         final TextField textField = new TextField();
         
         

@@ -11,6 +11,7 @@ import inception.plugin.PluginLoaderException;
 import inception.plugin.PluginManager;
 import inception.plugin.PluginsLoader;
 import inception.plugin.TestPlugin;
+import inception.plugin.VideoPlugin;
 import inception.view.ViewService;
 import java.io.File;
 import java.io.IOException;
@@ -47,11 +48,12 @@ public class App extends Application {
         
         PluginManager manager = PluginManager.getInstance();
         
-        Plugin p = manager.getPlugin(TestPlugin.class);
+        Plugin p = manager.getPlugin(VideoPlugin.class);
         Node testPreview = p.createPreview(new DummyStimulus());
-        Node testProperties  = p.createPropoertiesPane(new DummyStimulus());
+        Node testProperties  = p.createPropertiesPane(new DummyStimulus());
         
         AnchorPane pane = viewService.getView("MainLayout");
+        pane.getChildren().add(testPreview);
         pane.getChildren().add(testProperties);
         primaryStage.setScene(new Scene(pane));
         primaryStage.show();
