@@ -17,7 +17,7 @@ public interface Plugin {
     String getLabel();
     Stimulus createStimulus();
     Node createPreview(Stimulus s);
-    Node createPropoertiesPane(Stimulus s);
+    Node createPropertiesPane(Stimulus s);
     Class getStimulusClass();
     
 }

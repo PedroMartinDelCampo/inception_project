@@ -5,8 +5,13 @@
  */
 package inception;
 
+import inception.model.DummyStimulus;
+import inception.plugin.Plugin;
 import inception.plugin.PluginLoaderException;
+import inception.plugin.PluginManager;
 import inception.plugin.PluginsLoader;
+import inception.plugin.TestPlugin;
+import inception.plugin.VideoPlugin;
 import inception.view.ViewService;
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +19,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Properties;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -39,7 +45,16 @@ public class App extends Application {
         String pluginsPath = properties.getProperty("plugins.file");
         File pluginsFile = new File(pluginsPath);
         PluginsLoader.loadFromFile(pluginsFile);
+        
+        PluginManager manager = PluginManager.getInstance();
+        
+        Plugin p = manager.getPlugin(VideoPlugin.class);
+        Node testPreview = p.createPreview(new DummyStimulus());
+        Node testProperties  = p.createPropertiesPane(new DummyStimulus());
+        
         AnchorPane pane = viewService.getView("MainLayout");
+        pane.getChildren().add(testPreview);
+        pane.getChildren().add(testProperties);
         primaryStage.setScene(new Scene(pane));
         primaryStage.show();
     }
