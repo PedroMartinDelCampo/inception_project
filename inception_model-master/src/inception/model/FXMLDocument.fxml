@@ -10,13 +10,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
+<AnchorPane id="AnchorPane" focusTraversable="true" prefHeight="447.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+    <children>
       <MenuBar layoutY="2.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.82" prefHeight="25.0" prefWidth="267.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="New Frame" />
+              <MenuItem mnemonicParsing="false" onAction="#newFrame" text="New Frame" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -45,7 +45,7 @@
                         <Label fx:id="label" layoutX="14.0" layoutY="6.0" text="PreView" />
                         <HBox alignment="BOTTOM_LEFT" layoutY="197.0" prefHeight="36.0" prefWidth="477.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
                            <children>
-                              <Button mnemonicParsing="false" text="Play">
+                              <Button mnemonicParsing="false" onAction="#Action" text="Play">
                                  <HBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </HBox.margin>
