@@ -5,40 +5,54 @@
  */
 package inception.controller;
 
+import inception.model.Frame;
+import inception.model.StoryBuilder;
+import inception.plugin.PluginManager;
 import java.awt.event.MouseEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaView;
-import javafx.stage.Stage;
 /**
  *
  * @author Humberto
  */
-public class FrameController {
+public class FrameController implements Initializable {
+    
+    private final StoryBuilder builder = StoryBuilder.getInstance();
+    private final PluginManager pluginManager = PluginManager.getInstance();
     
     @FXML
     private ListView listView;
     
-    private void initialize(){
-         
-     }
-
     public void addFrame(){
-        
+        int index = builder.addFrame();
+        Button selectFrameButton = new Button("Frame " + index);
+        selectFrameButton.setOnAction((ActionEvent event) -> {
+            openFrame(index);
+        });
+        listView.getItems().add("Frame " + index);
     }
     
     public void deleteFrame(){
         
     }
     
-    public void openFrame(MouseEvent event){
+    public void openFrame(int index){
         System.out.println("clicked on ");
         
     }
     
     public void showFrame(){
+        /*
         if(preview != null){
             MediaView mediaview = new MediaView();
             previewPane.getChildren().add(mediaview);
@@ -47,15 +61,23 @@ public class FrameController {
             MediaView mediaview = new MediaView();
             previewPane.getChildren().add(mediaview); 
         }
+        */
        
     }
     
     public void playFrame(){
-        
+        Frame frame = builder.selectedFrame();
+        frame.play();
     }
     
     public void stopFrame(){
-        
+        Frame frame = builder.selectedFrame();
+        frame.end();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
     
     

@@ -5,17 +5,10 @@
  */
 package inception.controller;
 
-import javafx.fxml.FXML;
-
 /**
  *
- * @author Pedro
+ * @author Humberto
  */
-public class ExampleController {
-    
-    @FXML
-    public void sayHello() {
-        System.out.println("Hello");
-    }
+public class MenuController {
     
 }
