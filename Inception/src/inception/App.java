@@ -10,7 +10,6 @@ import inception.plugin.Plugin;
 import inception.plugin.PluginLoaderException;
 import inception.plugin.PluginManager;
 import inception.plugin.PluginsLoader;
-import inception.plugin.TestPlugin;
 import inception.plugin.VideoPlugin;
 import inception.view.ViewService;
 import java.io.File;

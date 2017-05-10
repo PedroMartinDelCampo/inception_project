@@ -1,0 +1,18 @@
+@startuml
+
+hide footbox
+autonumber
+
+PluginsLoader -> JAXBContext : newInstance(PluginListWrapper.class)
+create Unmarshaller
+JAXBContext -> Unmarshaller : createUnmarshaller()
+PluginsLoader -> Unmarshaller : unmarshall(file)
+create PluginListWrapper
+Unmarshaller -> PluginListWrapper : new
+PluginsLoader <-- Unmarshaller : wrapper
+PluginsLoader -> PluginListWrapper : getPlugins()
+PluginsLoader <-- PluginListWrapper : plugins
+loop for each plugin
+PluginsLoader -> PluginManager : registerPlugin(plugin)
+end
+@enduml
