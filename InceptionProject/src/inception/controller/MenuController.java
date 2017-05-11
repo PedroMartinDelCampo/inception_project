@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inception.plugin;
+package inception.controller;
 
 /**
  *
- * @author Fernando Flores García
+ * @author Humberto
  */
-public class Main {
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-
+public class MenuController {
     
 }

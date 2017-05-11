@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar layoutY="2.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.82" prefHeight="25.0" prefWidth="267.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="New Frame" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Dalete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.10726072607260725, 0.9042904290429042" prefHeight="373.0" prefWidth="492.0" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="69.0">
+               <children>
+                  <Label layoutX="5.0" layoutY="6.0" text="Frames" />
+                  <ListView layoutX="-69.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+        <SplitPane dividerPositions="0.5457063711911357" layoutX="96.0" layoutY="70.0" orientation="VERTICAL" prefHeight="363.0" prefWidth="409.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="25.0">
+          <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="0.0">
+                     <children>
+                        <Label fx:id="label" layoutX="14.0" layoutY="6.0" text="PreView" />
+                        <HBox alignment="BOTTOM_LEFT" layoutY="197.0" prefHeight="36.0" prefWidth="477.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" text="Play">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button lineSpacing="25.0" mnemonicParsing="false" text="Stop">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="TimeLines" />
+                     </children></AnchorPane>
+          </items>
+        </SplitPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="363.0" prefWidth="0.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Propierties" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+    </children>
+</AnchorPane>
