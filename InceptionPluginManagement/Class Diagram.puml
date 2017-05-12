@@ -1,0 +1,41 @@
+@startuml
+annotation javax.xml.bind.annotation.XmlElement
+annotation javax.xml.bind.annotation.XmlRootElement
+class inception.model.Stimulus
+class inception.plugin.PluginListWrapper {
+    getPlugins(): plugins
+}
+class inception.plugin.PluginManager {
+    {static} getInstance(): pluginManager
+    registerPlugin(Class plugin)
+    getPlugin(Class plugin): plugin
+    getPlugins() : plugins
+    findByStimulus(Class stimulus) : plugin
+}
+class inception.plugin.PluginsLoader {
+    {static} loadFromFile(File file)
+}
+class java.util.Collection
+class java.util.List
+class javafx.scene.Node
+class javax.xml.bind.JAXBContext
+class javax.xml.bind.Unmarshaller
+interface inception.plugin.Plugin {
+    getLabel(): label
+    createStimulus() : Stimulus
+    createPreview(Stimulus s): Node
+    createPropertiesPane(Stimulus s): Node
+    getStimulusClass(): Class
+}
+inception.plugin.PluginListWrapper ..> javax.xml.bind.annotation.XmlElement
+inception.plugin.PluginListWrapper ..> javax.xml.bind.annotation.XmlRootElement
+inception.plugin.PluginListWrapper ..> java.util.List
+inception.plugin.PluginManager ..> inception.model.Stimulus
+inception.plugin.PluginManager ..> java.util.Collection
+inception.plugin.PluginsLoader ..> java.util.List
+inception.plugin.PluginsLoader ..> javax.xml.bind.JAXBContext
+inception.plugin.PluginsLoader ..> javax.xml.bind.Unmarshaller
+inception.plugin.PluginsLoader ..> inception.plugin.PluginsLoaderException
+inception.plugin.Plugin ..> inception.model.Stimulus
+inception.plugin.Plugin ..> javafx.scene.Node
+@enduml

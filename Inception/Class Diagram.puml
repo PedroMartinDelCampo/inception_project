@@ -1,0 +1,15 @@
+@startuml
+class inception.App {
+    start(Stage stage)
+}
+class inception.plugin.PluginLoaderException
+class inception.plugin.PluginsLoader
+class inception.view.ViewService
+class javafx.scene.Scene
+class javafx.stage.Stage
+inception.App ..> inception.plugin.PluginLoaderException
+inception.App ..> inception.plugin.PluginsLoader
+inception.App ..> inception.view.ViewService
+inception.App ..> javafx.scene.Scene
+inception.App ..> javafx.stage.Stage
+@enduml

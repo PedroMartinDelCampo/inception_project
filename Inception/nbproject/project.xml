@@ -44,6 +44,7 @@
             </reference>
             <reference>
                 <foreign-project>InceptionView</foreign-project>
+<<<<<<< HEAD
                 <artifact-type>jar</artifact-type>
                 <script>nbbuild.xml</script>
                 <target>jar</target>
@@ -52,6 +53,8 @@
             </reference>
             <reference>
                 <foreign-project>IneptionView</foreign-project>
+=======
+>>>>>>> 1ff32683419d9b3d5339ebdb414bce830acccbfb
                 <artifact-type>jar</artifact-type>
                 <script>nbbuild.xml</script>
                 <target>jar</target>
@@ -69,7 +72,11 @@
             <reference>
                 <foreign-project>VideoPlugin</foreign-project>
                 <artifact-type>jar</artifact-type>
+<<<<<<< HEAD
                 <script>nbbuild.xml</script>
+=======
+                <script>build.xml</script>
+>>>>>>> 1ff32683419d9b3d5339ebdb414bce830acccbfb
                 <target>jar</target>
                 <clean-target>clean</clean-target>
                 <id>jar</id>

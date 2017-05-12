@@ -10,8 +10,7 @@ import inception.plugin.Plugin;
 import inception.plugin.PluginLoaderException;
 import inception.plugin.PluginManager;
 import inception.plugin.PluginsLoader;
-import inception.plugin.TestPlugin;
-import inception.plugin.VideoPlugin;
+import inception.plugin.video.VideoPlugin;
 import inception.view.ViewService;
 import java.io.File;
 import java.io.IOException;
@@ -30,19 +29,14 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
     
-    private final ViewService viewService = ViewService.getInstance();
-    private static final String PROPERTIES_FILE = "App.properties";
-    private final Properties properties;
-    
-    public App() throws IOException {
-        URL propertiesResource = getClass().getResource(PROPERTIES_FILE);
-        properties = new Properties();
-        properties.load(propertiesResource.openStream());
-    }
+    private final ServiceContainer container = ServiceContainer.getInstance();
     
     @Override
-    public void start(Stage primaryStage) throws IOException, URISyntaxException, PluginLoaderException {
-        String pluginsPath = properties.getProperty("plugins.file");
+    public void start(Stage primaryStage) throws PluginLoaderException {
+        AppProperties appProperties = container.getAppProperties();
+        ViewService viewService = container.getViewService();
+        
+        String pluginsPath = appProperties.get("plugins.file");
         File pluginsFile = new File(pluginsPath);
         PluginsLoader.loadFromFile(pluginsFile);
         
@@ -53,8 +47,6 @@ public class App extends Application {
         Node testProperties  = p.createPropertiesPane(new DummyStimulus());
         
         AnchorPane pane = viewService.getView("MainLayout");
-        pane.getChildren().add(testPreview);
-        pane.getChildren().add(testProperties);
         primaryStage.setScene(new Scene(pane));
         primaryStage.show();
     }

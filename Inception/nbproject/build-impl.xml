@@ -932,8 +932,21 @@ is divided into following sections:
         </antcall>
         <antcall target="-maybe-call-dep">
             <param name="call.built.properties" value="${built-jar.properties}"/>
+<<<<<<< HEAD
             <param location="${project.IneptionView}" name="call.subproject"/>
             <param location="${project.IneptionView}/nbbuild.xml" name="call.script"/>
+=======
+            <param location="${project.TestPlugin}" name="call.subproject"/>
+            <param location="${project.TestPlugin}/build.xml" name="call.script"/>
+            <param name="call.target" value="jar"/>
+            <param name="transfer.built-jar.properties" value="${built-jar.properties}"/>
+            <param name="transfer.not.archive.disabled" value="true"/>
+        </antcall>
+        <antcall target="-maybe-call-dep">
+            <param name="call.built.properties" value="${built-jar.properties}"/>
+            <param location="${project.VideoPlugin}" name="call.subproject"/>
+            <param location="${project.VideoPlugin}/build.xml" name="call.script"/>
+>>>>>>> 1ff32683419d9b3d5339ebdb414bce830acccbfb
             <param name="call.target" value="jar"/>
             <param name="transfer.built-jar.properties" value="${built-jar.properties}"/>
             <param name="transfer.not.archive.disabled" value="true"/>
@@ -1477,8 +1490,21 @@ is divided into following sections:
         </antcall>
         <antcall target="-maybe-call-dep">
             <param name="call.built.properties" value="${built-clean.properties}"/>
+<<<<<<< HEAD
             <param location="${project.IneptionView}" name="call.subproject"/>
             <param location="${project.IneptionView}/nbbuild.xml" name="call.script"/>
+=======
+            <param location="${project.TestPlugin}" name="call.subproject"/>
+            <param location="${project.TestPlugin}/build.xml" name="call.script"/>
+            <param name="call.target" value="clean"/>
+            <param name="transfer.built-clean.properties" value="${built-clean.properties}"/>
+            <param name="transfer.not.archive.disabled" value="true"/>
+        </antcall>
+        <antcall target="-maybe-call-dep">
+            <param name="call.built.properties" value="${built-clean.properties}"/>
+            <param location="${project.VideoPlugin}" name="call.subproject"/>
+            <param location="${project.VideoPlugin}/build.xml" name="call.script"/>
+>>>>>>> 1ff32683419d9b3d5339ebdb414bce830acccbfb
             <param name="call.target" value="clean"/>
             <param name="transfer.built-clean.properties" value="${built-clean.properties}"/>
             <param name="transfer.not.archive.disabled" value="true"/>
