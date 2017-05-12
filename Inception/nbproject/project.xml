@@ -43,7 +43,31 @@
                 <id>jar</id>
             </reference>
             <reference>
+                <foreign-project>InceptionView</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>nbbuild.xml</script>
+                <target>jar</target>
+                <clean-target>clean</clean-target>
+                <id>jar</id>
+            </reference>
+            <reference>
                 <foreign-project>IneptionView</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>nbbuild.xml</script>
+                <target>jar</target>
+                <clean-target>clean</clean-target>
+                <id>jar</id>
+            </reference>
+            <reference>
+                <foreign-project>TestPlugin</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>build.xml</script>
+                <target>jar</target>
+                <clean-target>clean</clean-target>
+                <id>jar</id>
+            </reference>
+            <reference>
+                <foreign-project>VideoPlugin</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>nbbuild.xml</script>
                 <target>jar</target>
