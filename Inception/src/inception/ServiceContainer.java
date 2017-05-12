@@ -23,6 +23,7 @@ public class ServiceContainer {
     private ServiceContainer() {
         pluginManager = PluginManager.getInstance();
         viewService = ViewService.getInstance();
+        appProperties = new AppProperties();
     }
     
     public static ServiceContainer getInstance() {
