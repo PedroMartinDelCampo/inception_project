@@ -4,3 +4,4 @@ InceptionProject/manifest.mf
 InceptionProject/nbbuild.xml
 InceptionProject/build.xml
 /InceptionProject/dist/
+InceptionProject/src/inception/App.properties
