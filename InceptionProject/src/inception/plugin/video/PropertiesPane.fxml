@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="369.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="inception.plugin.video.PropertiesPaneController">
+    <stylesheets>
+        <URL value="@propertiespane.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Archivo:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <TextField fx:id="path" editable="false" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="346.0" promptText="Archivo" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+      <Button layoutX="302.0" layoutY="65.0" mnemonicParsing="false" onAction="#changePath" text="Elegir" AnchorPane.rightAnchor="15.0" />
+   </children>
+</AnchorPane>

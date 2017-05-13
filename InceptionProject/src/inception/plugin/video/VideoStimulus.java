@@ -6,6 +6,7 @@
 package inception.plugin.video;
 
 import inception.model.Stimulus;
+import javafx.scene.media.Media;
 import javafx.util.Duration;
 
 /**
@@ -15,11 +16,17 @@ import javafx.util.Duration;
 public class VideoStimulus extends Stimulus{
     
     private String source; //The source direction where it looks for the video
-    private int duration, minutes, seconds;
-
+    private Duration length;
+    private static final String DEFAULT_MEDIA_URL =
+ "http://download.oracle.com/otndocs/products/javafx/oow2010-2.flv";
+    
+    public VideoStimulus() {
+        setSource(DEFAULT_MEDIA_URL);
+    }
+    
     @Override
     public Duration getLength() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return length;
     }
 
     @Override
@@ -32,11 +39,13 @@ public class VideoStimulus extends Stimulus{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public final void setSource(String source) {
+        this.source = source;
+        length = new Media(source).getDuration();
+    }
+    
     public String getSource() {
         return source;
     }
-    
-    
-    
     
 }

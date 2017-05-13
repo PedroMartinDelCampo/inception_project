@@ -7,13 +7,13 @@ package inception.plugin.video;
 
 import inception.model.Stimulus;
 import inception.plugin.Plugin;
-import inception.plugin.Plugin;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 
 
 /**
@@ -21,11 +21,6 @@ import javafx.scene.media.MediaView;
  * @author Fernando Flores García
  */
 public class VideoPlugin implements Plugin{
-    
-    private VideoStimulus videoStimulus;
-    private VBox contentPane = new VBox();
-    private static final String MEDIA_URL =
- "http://download.oracle.com/otndocs/products/javafx/oow2010-2.flv";
 
     @Override
     public String getLabel() {
@@ -34,35 +29,38 @@ public class VideoPlugin implements Plugin{
 
     @Override
     public Stimulus createStimulus() {
-        return videoStimulus;
+        return new VideoStimulus();
     }
 
     @Override
     public Node createPreview(Stimulus s) {
-        Media media = new Media(MEDIA_URL);
+        VideoStimulus video = (VideoStimulus) s;
+        Media media = new Media(video.getSource());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-        
         MediaControl mediaView = new MediaControl(mediaPlayer);
-        
-        //contentPane.getChildren().add(mediaView);
-        
         return mediaView;
     }
 
     @Override
     public Node createPropertiesPane(Stimulus s) {
-        final TextField textField = new TextField();
-        return textField;
+        VideoStimulus video = (VideoStimulus) s;
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(VideoPlugin.class.getResource("PropertiesPane.fxml"));
+        Node propertiesPane;
+        try {
+            propertiesPane = loader.load();
+        } catch (IOException ex) {
+            return new AnchorPane();
+        }
+        PropertiesPaneController controller = loader.getController();
+        controller.setVideo(video);
+        return propertiesPane;
     }
 
     @Override
     public Class getStimulusClass() {
         return VideoStimulus.class;
-    }
-    
-    public String getMediaSource(){
-        return videoStimulus.getSource();
     }
     
 }

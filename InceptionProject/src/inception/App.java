@@ -5,7 +5,6 @@
  */
 package inception;
 
-import inception.model.DummyStimulus;
 import inception.plugin.Plugin;
 import inception.plugin.PluginLoaderException;
 import inception.plugin.PluginManager;
@@ -14,10 +13,6 @@ import inception.plugin.video.VideoPlugin;
 import inception.plugin.video.VideoStimulus;
 import inception.view.ViewService;
 import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Properties;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
