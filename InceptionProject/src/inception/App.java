@@ -42,8 +42,8 @@ public class App extends Application {
         Node testProperties  = p.createPropertiesPane(new VideoStimulus());
         
         AnchorPane pane = viewService.getView("MainLayout");
-        pane.getChildren().add(testPreview);
-        pane.getChildren().add(testProperties);
+        // pane.getChildren().add(testPreview);
+        // pane.getChildren().add(testProperties);
         primaryStage.setScene(new Scene(pane));
         primaryStage.show();
     }
