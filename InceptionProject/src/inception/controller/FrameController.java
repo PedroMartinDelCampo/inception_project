@@ -65,8 +65,7 @@ public class FrameController implements Initializable {
    
     
     public void openFrame(int index){
-        System.out.println("clicked on frame");
-        
+        System.out.println("clicked on frame");   
     }
     
     public void showFrame(){
@@ -99,7 +98,5 @@ public class FrameController implements Initializable {
             builder.selectFrame((int) newValue);
             showFrame();
         });
-    }
-    
-    
+    }   
 }
