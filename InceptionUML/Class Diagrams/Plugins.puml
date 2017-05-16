@@ -1,0 +1,26 @@
+@startuml
+    interface Plugin {
+        getLabel(): String
+        createStimulus(): Stimulus
+        createPreview(Stimulus s): Node
+        createPropertiesPane(Stimulus s): Node
+        getStimulusClass(): Class
+    }
+    class PluginListWrapper {
+        setPlugins(List<String> plugins)
+        getPlugins(): List<String>
+    }
+    class PluginManager {
+        findByStimulus(Class stimulus): Plugin
+        getPlugin(Class plugin): Plugin
+        getPlugins(): Collection<Plugin>
+        registerPlugin(Class plugin)
+    }
+    class PluginLoader {
+        {static} loadFromFile(File f)
+    }
+    PluginLoader -left> PluginManager
+    PluginManager -down> PluginListWrapper
+    PluginListWrapper -up> Plugin
+    PluginManager -left> Plugin
+@enduml

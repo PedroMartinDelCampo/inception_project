@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:id="toolbar" fx:controller="inception.controller.ToolbarController">
    <children>
       <Button mnemonicParsing="false" text="Play">
          <opaqueInsets>

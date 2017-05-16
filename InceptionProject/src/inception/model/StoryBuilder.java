@@ -5,6 +5,9 @@
  */
 package inception.model;
 
+import inception.model.Frame;
+import inception.model.Story;
+
 /**
  *
  * @author Humberto
@@ -21,6 +24,7 @@ public class StoryBuilder {
     
     private final Story story = new Story();
     private int selectedFrame = -1;
+    private int totalFrameCount = -1;
     
     public void selectFrame(int i) {
         selectedFrame = i;
@@ -29,7 +33,16 @@ public class StoryBuilder {
     public int addFrame() {
         Frame frame = new Frame();
         story.add(frame);
-        return ++selectedFrame;
+        totalFrameCount++; 
+        return totalFrameCount;
+    }
+    
+    public int deleteFrame(){
+        if(selectedFrame!=-1){
+            story.remove(selectedFrame);
+            totalFrameCount--;
+        }
+        return selectedFrame;
     }
     
     public Frame selectedFrame() {

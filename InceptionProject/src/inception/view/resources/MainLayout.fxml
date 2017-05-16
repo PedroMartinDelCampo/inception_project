@@ -34,10 +34,10 @@
       <SplitPane dividerPositions="0.1, 0.9" prefHeight="373.0" prefWidth="492.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
         <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="69.0">
-               <children>
-                  <Label layoutX="5.0" layoutY="6.0" text="Frames" />
-                  <ListView layoutX="-69.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children></AnchorPane>
+            <children>
+                <fx:include fx:id="frames" source="FrameListView.fxml" />
+            </children>
+        </AnchorPane>
         <SplitPane dividerPositions="0.5817694369973191" layoutX="96.0" layoutY="70.0" orientation="VERTICAL" prefHeight="363.0" prefWidth="409.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="25.0">
           <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="0.0">

@@ -5,5 +5,13 @@ InceptionProject/nbbuild.xml
 InceptionProject/build.xml
 /InceptionProject/dist/
 InceptionProject/src/inception/App.properties
+<<<<<<< HEAD
 /nbproject/private/
 /build/
+=======
+/nbproject/
+/build/
+/dist/
+nbbuild.xml
+manifest.mf
+>>>>>>> 687ec82aa73e6deea7348216cba0553a07b9721d
