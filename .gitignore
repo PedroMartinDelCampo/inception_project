@@ -5,3 +5,5 @@ InceptionProject/nbbuild.xml
 InceptionProject/build.xml
 /InceptionProject/dist/
 InceptionProject/src/inception/App.properties
+/nbproject/private/
+/build/

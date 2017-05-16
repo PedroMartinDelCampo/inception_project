@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -19,10 +20,35 @@
    </rowConstraints>
    <children>
       <Label text="Nombre" />
-      <ProgressBar maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="581.0" progress="0.39" GridPane.columnIndex="1">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.0" stroke="BLACK" strokeType="INSIDE" width="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
-      </ProgressBar>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff761f" height="35.0" stroke="BLACK" strokeType="INSIDE" width="268.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="200.0" />
+         </GridPane.margin>
+      </Rectangle>
+      <Polyline fill="CHARTREUSE" scaleX="0.2" scaleY="0.2" strokeType="INSIDE" GridPane.columnIndex="1">
+        <points>
+          <Double fx:value="-50.0" />
+          <Double fx:value="-40.0" />
+          <Double fx:value="50.0" />
+          <Double fx:value="-40.0" />
+          <Double fx:value="0.0" />
+          <Double fx:value="60.0" />
+          <Double fx:value="-50.0" />
+          <Double fx:value="-40.0" />
+        </points>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+         <GridPane.margin>
+            <Insets left="-50.0" />
+         </GridPane.margin>
+      </Polyline>
+      <Label text="Nombre" GridPane.rowIndex="1" />
+      <Label text="Nombre" GridPane.rowIndex="2" />
    </children>
 </GridPane>
