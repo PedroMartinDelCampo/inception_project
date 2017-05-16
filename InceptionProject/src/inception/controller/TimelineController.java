@@ -15,10 +15,13 @@ public class TimelineController {
     
     @FXML
     public void addTimeline(){
+        System.out.println("clicked on add");
         
     }
     
+    @FXML
     public void deleteTimeline(){
+        System.out.println("clicked on delete");
         
     }
     
