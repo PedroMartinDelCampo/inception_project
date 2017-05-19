@@ -49,4 +49,10 @@ public class Frame implements Animatable {
         return executor;
     }
     
+     public int selectedTimeline(int i){
+        return i;
+    }
+     
+     
+    
 }

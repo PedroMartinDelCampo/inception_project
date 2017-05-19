@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inception.controller.TimelineController">
+<GridPane fx:id="gridPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inception.controller.TimelineController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="104.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="609.0" minWidth="0.0" prefWidth="591.0" />
@@ -23,16 +23,6 @@
    </rowConstraints>
    <children>
       <Label text="Nombre" GridPane.rowIndex="1" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" stroke="BLACK" strokeType="INSIDE" width="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff761f" height="27.0" stroke="BLACK" strokeType="INSIDE" width="268.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="200.0" />
-         </GridPane.margin>
-      </Rectangle>
       <Polyline fill="CHARTREUSE" scaleX="0.2" scaleY="0.2" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <points>
           <Double fx:value="-50.0" />
@@ -51,8 +41,6 @@
             <Insets left="-50.0" />
          </GridPane.margin>
       </Polyline>
-      <Label text="Nombre" GridPane.rowIndex="2" />
-      <Label text="Nombre" GridPane.rowIndex="3" />
       <Button fx:id="newTimelineButton" mnemonicParsing="false" onAction="#addTimeline" text="new timelime" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets left="280.0" />
@@ -66,12 +54,6 @@
             <Insets left="470.0" />
          </GridPane.margin>
       </TextField>
-      <Label text="Nombre" GridPane.rowIndex="4" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#496a8a" height="25.0" stroke="BLACK" strokeType="INSIDE" width="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </Rectangle>
       <Button fx:id="deleteTimelineButton" mnemonicParsing="false" onAction="#deleteTimeline" text="Delete Timeline" GridPane.columnIndex="1">
          <opaqueInsets>
             <Insets />
