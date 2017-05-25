@@ -24,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaView;
+import javafx.scene.shape.Rectangle;
 /**
  *
  * @author Humberto
@@ -39,6 +40,9 @@ public class FrameController implements Initializable {
     @FXML 
     private Button addFrame;
     
+     @FXML
+    private Rectangle timeline;
+    
     @FXML
     public void addFrame(){
         System.out.println("clicked on +");
@@ -48,6 +52,7 @@ public class FrameController implements Initializable {
             openFrame(index);
         });
         listView.getItems().add("Frame " + index);
+        
     }
     
     public void deleteFrame(){

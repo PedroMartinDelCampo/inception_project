@@ -31,9 +31,9 @@
           </Menu>
         </menus>
       </MenuBar>
-      <SplitPane dividerPositions="0.1, 0.9" prefHeight="373.0" prefWidth="492.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <SplitPane dividerPositions="0.3311036789297659, 0.8277591973244147" prefHeight="373.0" prefWidth="492.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
         <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="69.0">
+        <AnchorPane fx:id="listview" maxWidth="195.0" minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="69.0">
             <children>
                 <fx:include fx:id="frames" source="FrameListView.fxml" />
             </children>
@@ -53,14 +53,14 @@
                            </children>
                         </Pane>
                      </children></AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <AnchorPane maxHeight="500.0" minHeight="200.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
                          <fx:include fx:id="timeline" source="TimeLine.fxml" />
                      </children>
             </AnchorPane>
           </items>
         </SplitPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="363.0" prefWidth="0.0" SplitPane.resizableWithParent="false">
+        <AnchorPane maxWidth="400.0" minHeight="0.0" minWidth="100.0" prefHeight="363.0" prefWidth="0.0" SplitPane.resizableWithParent="false">
                <children>
                   <fx:include fx:id="properties" source="Properties.fxml" />
                </children></AnchorPane>
