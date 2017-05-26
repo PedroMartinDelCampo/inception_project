@@ -31,19 +31,20 @@ public class TimelineController {
     @FXML
     private GridPane timelineGridPane;
     
-    public int i = 2;
+    public int i = 0;
     
     private static final double TIMELINE_WIDTH = 100;
     private static final double TIMELINE_HEIGHT = 30;
     
     private TimelineView selectedTimeline;
-    private int selectedIndex;
+    private int selectedIndex,totalIndex=0;
+    
+    private Label selectedLabel;
     
     @FXML
     public void addTimeline(){
         System.out.println("clicked on add");
-        Label nombre = new Label("Timeline " + (i-1));
-        i++;
+        Label nombre = new Label("Timeline " + (i+1));
         TimelineView timeline = new TimelineView(TIMELINE_WIDTH, TIMELINE_HEIGHT);
         timeline.setIndex(i);
         timeline.setFill(Color.color(Math.random(), Math.random(), Math.random()));
@@ -51,11 +52,28 @@ public class TimelineController {
             editPropertiesTimeline();   
             timeline.setFill(Color.RED); 
             selectedTimeline = timeline;
+            selectedLabel = nombre;
             selectedIndex=i;
-            System.out.println("clicked on add" + selectedIndex);
+            System.out.println("clicked on add" + i);
         });
+        
+        /*
+        if(totalIndex!=0){
+            for(int k=1;k<totalIndex;k++){
+            if(timelineGridPane.getChildren().get(k)!= null){
+                timelineGridPane.add(nombre, 0, k);
+                timelineGridPane.add(timeline, 1, k);
+            }
+            i++;
+            break;
+            }
+        }
+        */
         timelineGridPane.add(nombre, 0, i);
         timelineGridPane.add(timeline, 1, i);
+        i++;
+        
+        totalIndex++;
         
     }
     
@@ -67,7 +85,16 @@ public class TimelineController {
             alert.setContentText("No has seleccionado ningun timeline");
         } else {
             timelineGridPane.getChildren().remove(selectedTimeline);
-            timelineGridPane.getChildren().remove(0,selectedIndex-2);
+            timelineGridPane.getChildren().remove(selectedLabel);
+            /*
+            int val=0;
+            for (int j=selectedIndex;j<i;j++){
+                timelineGridPane.getChildren().add(j,timelineGridPane.getChildren().get(j+1));
+                val=j;
+            }
+            i=val;
+            */
+                   
         }
     }
     

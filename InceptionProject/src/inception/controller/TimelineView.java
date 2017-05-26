@@ -5,6 +5,7 @@
  */
 package inception.controller;
 
+import javafx.animation.Timeline;
 import javafx.scene.shape.Rectangle;
 
 /**
