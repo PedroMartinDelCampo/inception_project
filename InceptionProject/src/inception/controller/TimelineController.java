@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -57,20 +58,9 @@ public class TimelineController {
             System.out.println("clicked on add" + i);
         });
         
-        /*
-        if(totalIndex!=0){
-            for(int k=1;k<totalIndex;k++){
-            if(timelineGridPane.getChildren().get(k)!= null){
-                timelineGridPane.add(nombre, 0, k);
-                timelineGridPane.add(timeline, 1, k);
-            }
-            i++;
-            break;
-            }
-        }
-        */
         timelineGridPane.add(nombre, 0, i);
         timelineGridPane.add(timeline, 1, i);
+        timelineGridPane.setMargin(timeline, new Insets(0,0,0,0));
         i++;
         
         totalIndex++;
@@ -85,16 +75,7 @@ public class TimelineController {
             alert.setContentText("No has seleccionado ningun timeline");
         } else {
             timelineGridPane.getChildren().remove(selectedTimeline);
-            timelineGridPane.getChildren().remove(selectedLabel);
-            /*
-            int val=0;
-            for (int j=selectedIndex;j<i;j++){
-                timelineGridPane.getChildren().add(j,timelineGridPane.getChildren().get(j+1));
-                val=j;
-            }
-            i=val;
-            */
-                   
+            timelineGridPane.getChildren().remove(selectedLabel);   
         }
     }
     
@@ -102,6 +83,7 @@ public class TimelineController {
     }
     
     public void editIntervalTimeline(){
+        timelineGridPane.setMargin(selectedTimeline, new Insets(0,0,0,i));
         
     }
     

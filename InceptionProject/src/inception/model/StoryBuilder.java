@@ -46,6 +46,9 @@ public class StoryBuilder {
     }
     
     public Frame selectedFrame() {
+        if (selectedFrame == -1){
+            selectedFrame = 1;
+        }
         return story.getFrames().get(selectedFrame);
     }
     

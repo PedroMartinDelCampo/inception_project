@@ -30,6 +30,15 @@ public class ToolbarController implements Initializable {
     
     private final PluginManager pluginManager = ServiceContainer.getInstance().getPluginManager();
     
+    
+    public void play(){
+        System.out.println("clicked on play story");
+    }
+    
+    public void stop(){
+        System.out.println("clicked on stop story");
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Collection<Plugin> plugins = pluginManager.getPlugins();

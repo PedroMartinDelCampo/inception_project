@@ -10,23 +10,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@tema1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar layoutY="2.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.82" prefHeight="25.0" prefWidth="267.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem mnemonicParsing="false" text="New Proyect" />
+                  <MenuItem mnemonicParsing="false" text="Open Proyect" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
               <MenuItem mnemonicParsing="false" text="New Frame" />
+                  <MenuItem mnemonicParsing="false" text="Delete Frame" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Dalete" />
+              <MenuItem mnemonicParsing="false" text="New Plugin" />
+                  <MenuItem mnemonicParsing="false" text="Delete Plugin" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
@@ -53,7 +60,7 @@
                            </children>
                         </Pane>
                      </children></AnchorPane>
-            <AnchorPane maxHeight="500.0" minHeight="200.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <AnchorPane maxHeight="500.0" minHeight="200.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" stylesheets="@tema1.css">
                      <children>
                          <fx:include fx:id="timeline" source="TimeLine.fxml" />
                      </children>

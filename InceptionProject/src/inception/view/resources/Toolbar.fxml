@@ -9,7 +9,7 @@
 
 <HBox fx:id="toolbar" spacing="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inception.controller.ToolbarController">
    <children>
-      <Button mnemonicParsing="false" text="Play">
+      <Button mnemonicParsing="false" onAction="#play" text="Play">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -17,6 +17,6 @@
             <Insets left="10.0" right="5.0" />
          </HBox.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Stop" />
+      <Button mnemonicParsing="false" onAction="#stop" prefHeight="25.0" prefWidth="42.0" text="Stop" />
    </children>
 </HBox>

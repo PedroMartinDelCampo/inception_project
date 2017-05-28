@@ -6,12 +6,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="504.0" prefWidth="63.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="504.0" prefWidth="63.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inception.controller.PropertiesController">
    <children>
       <Label text="Description Plugin:" />
       <Label layoutY="14.0" text="..." />
       <Label layoutX="8.0" layoutY="386.0" text="Properties Timeline" />
-      <Label layoutX="8.0" layoutY="419.0" text="Start:" />
+      <Label layoutX="8.0" layoutY="419.0" text="Start:  " />
       <TextField layoutX="39.0" layoutY="415.0" prefHeight="25.0" prefWidth="71.0" />
+      <Label layoutX="9.0" layoutY="454.0" text="Time:  " />
+      <TextField layoutX="39.0" layoutY="450.0" prefHeight="25.0" prefWidth="71.0" />
+      <Button layoutX="116.0" layoutY="415.0" mnemonicParsing="false" onAction="#startTimeline" text="Aceptar" />
+      <Button layoutX="116.0" layoutY="450.0" mnemonicParsing="false" onAction="#duracionTimeline" text="Aceptar" textAlignment="CENTER" />
    </children>
 </Pane>

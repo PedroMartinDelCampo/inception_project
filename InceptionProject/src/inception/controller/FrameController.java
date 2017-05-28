@@ -43,6 +43,9 @@ public class FrameController implements Initializable {
      @FXML
     private Rectangle timeline;
     
+   
+     
+     
     @FXML
     public void addFrame(){
         System.out.println("clicked on +");
@@ -51,8 +54,7 @@ public class FrameController implements Initializable {
         selectFrameButton.setOnAction((ActionEvent event) -> {
             openFrame(index);
         });
-        listView.getItems().add("Frame " + index);
-        
+        listView.getItems().add("Frame " + index);        
     }
     
     public void deleteFrame(){
@@ -68,28 +70,24 @@ public class FrameController implements Initializable {
         }
     }
    
-    
     public void openFrame(int index){
-        System.out.println("clicked on frame");   
     }
     
     public void showFrame(){
-        /*
-        if(preview != null){
-            MediaView mediaview = new MediaView();
-            previewPane.getChildren().add(mediaview);
-        }
-        else{
-            MediaView mediaview = new MediaView();
-            previewPane.getChildren().add(mediaview); 
-        }
-        */
-       
+        System.out.println("clicked on frame"); 
     }
     
     public void playFrame(){
+        System.out.println("Play");
         Frame frame = builder.selectedFrame();
-        frame.play();
+        if(frame == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("No has seleccionado ningun frame");
+            alert.show();
+        }
+        else{
+            frame.play();
+        }
     }
     
     public void stopFrame(){
