@@ -6,6 +6,7 @@
 package inception.controller;
 
 import inception.model.Frame;
+import inception.model.StoryBuilder;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
@@ -33,13 +34,15 @@ public class TimelineController {
     @FXML
     private GridPane timelineGridPane;
     
+    private final StoryBuilder builder = StoryBuilder.getInstance();
+    
     public int i = 0;
     
     private static final double TIMELINE_WIDTH = 100;
     private static final double TIMELINE_HEIGHT = 30;
     
     private TimelineView selectedTimeline;
-    private int selectedIndex,totalIndex=0;
+    private int selectedIndex,totalIndex=0,frameIndex=0;
     
     private Label selectedLabel;
     
@@ -47,6 +50,7 @@ public class TimelineController {
     public void addTimeline(){
         System.out.println("clicked on add");
         Label nombre = new Label("Timeline " + (i+1));
+        Frame frame = builder.getFrame(frameIndex);
         TimelineView timeline = new TimelineView(TIMELINE_WIDTH, TIMELINE_HEIGHT);
         timeline.setIndex(i);
         timeline.setFill(Color.color(Math.random(), Math.random(), Math.random()));
@@ -102,6 +106,10 @@ public class TimelineController {
             }
         }
         return numRows;
+    }
+    
+    public void setFrameIndex(int frameIndex){
+        this.frameIndex= frameIndex;
     }
     
     

@@ -57,4 +57,8 @@ public class StoryBuilder {
         return story.getFrames();
     } 
     
+    public Frame getFrame(int index){
+        return story.getFrames().get(index);
+    }
+    
 }
