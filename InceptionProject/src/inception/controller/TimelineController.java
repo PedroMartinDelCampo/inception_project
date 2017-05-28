@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -54,8 +55,8 @@ public class TimelineController {
             timeline.setFill(Color.RED); 
             selectedTimeline = timeline;
             selectedLabel = nombre;
-            selectedIndex=i;
-            System.out.println("clicked on add" + i);
+            selectedIndex=timeline.getIndex();
+            System.out.println("clicked on add" + selectedIndex);
         });
         
         timelineGridPane.add(nombre, 0, i);
@@ -75,8 +76,10 @@ public class TimelineController {
             alert.setContentText("No has seleccionado ningun timeline");
         } else {
             timelineGridPane.getChildren().remove(selectedTimeline);
-            timelineGridPane.getChildren().remove(selectedLabel);   
-        }
+            timelineGridPane.getChildren().remove(selectedLabel);
+            
+            }
+            
     }
     
     public void editPropertiesTimeline(){     
@@ -85,6 +88,20 @@ public class TimelineController {
     public void editIntervalTimeline(){
         timelineGridPane.setMargin(selectedTimeline, new Insets(0,0,0,i));
         
+    }
+    
+    private int getRowCount(GridPane pane) {
+        int numRows = pane.getRowConstraints().size();
+        for (int i = 0; i < pane.getChildren().size(); i++) {
+            Node child = pane.getChildren().get(i);
+            if (child.isManaged()) {
+                Integer rowIndex = GridPane.getRowIndex(child);
+                if(rowIndex != null){
+                    numRows = Math.max(numRows,rowIndex+1);
+                }
+            }
+        }
+        return numRows;
     }
     
     

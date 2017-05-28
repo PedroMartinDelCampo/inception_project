@@ -71,6 +71,10 @@ public class FrameController implements Initializable {
     }
    
     public void openFrame(int index){
+        Frame localFrame = builder.selectedFrame();
+        ObservableList timelineList = localFrame.getStimuli();
+        
+        
     }
     
     public void showFrame(){

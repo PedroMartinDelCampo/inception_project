@@ -14,6 +14,7 @@ import javafx.scene.shape.Rectangle;
  */
 public class TimelineView extends Rectangle {
     private int index;
+    private String Label;
 
     public TimelineView(double width, double height) {
         super(width, height);
@@ -22,6 +23,22 @@ public class TimelineView extends Rectangle {
     public void setIndex(int index) {
         this.index = index;
     }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public String getLabel() {
+        return Label;
+    }
+
+    public void setLabel(String Label) {
+        this.Label = Label;
+    }
+    
+    
+    
+    
     
     
     

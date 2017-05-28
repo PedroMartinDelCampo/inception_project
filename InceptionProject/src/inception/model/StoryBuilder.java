@@ -7,6 +7,7 @@ package inception.model;
 
 import inception.model.Frame;
 import inception.model.Story;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -51,5 +52,9 @@ public class StoryBuilder {
         }
         return story.getFrames().get(selectedFrame);
     }
+    
+    public ObservableList<Frame> getFrames(){
+        return story.getFrames();
+    } 
     
 }

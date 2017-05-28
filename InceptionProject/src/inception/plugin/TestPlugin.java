@@ -10,11 +10,7 @@ import inception.model.Stimulus;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
-import javafx.scene.media.Media;
 import javafx.scene.text.Text;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-
 /**
  *
  * @author Fernando Flores García
@@ -38,16 +34,8 @@ public class TestPlugin implements Plugin {
 
     @Override
     public Node createPreview(Stimulus s) {
-        
-        Media media = new Media(MEDIA_URL);
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setAutoPlay(true);
-        
-        MediaView mediaView = new MediaView(mediaPlayer);
-     
-     
         Text t = new Text(10, 50, "This is a test of the preview");
-        return mediaView;
+        return t;
     }
 
     @Override
