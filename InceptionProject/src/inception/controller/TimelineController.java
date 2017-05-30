@@ -6,11 +6,12 @@
 package inception.controller;
 
 import inception.ServiceContainer;
-import inception.model.Frame;
 import inception.model.Stimulus;
 import inception.model.StoryBuilder;
 import inception.plugin.Plugin;
 import inception.plugin.PluginManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -41,6 +42,7 @@ public class TimelineController {
     
     private TimelineView selectedTimeline;
     private int selectedIndex,totalIndex=0,frameIndex=0;
+    private final ObservableList<TimelineView> timelines = FXCollections.observableArrayList();
     
     private Label selectedLabel;
     
@@ -58,12 +60,15 @@ public class TimelineController {
         timeline.setStimulus(s);
         timeline.setFill(Color.color(Math.random(), Math.random(), Math.random()));
         timeline.setOnMouseClicked((MouseEvent t) -> {
+            timelines.forEach(time -> {
+                time.getStyleClass().clear();
+            });
+            timeline.getStyleClass().add("selected-timeline");
             Plugin plugin = manager.findByStimulus(s.getClass());
             Node preview = plugin.createPreview(s);
             previewController.setPreview(preview);
             Node properties = plugin.createPropertiesPane(s);
             editPropertiesTimeline();
-            timeline.setFill(Color.RED);
             selectedTimeline = timeline;
             selectedLabel = nombre;
             selectedIndex=timeline.getIndex();
@@ -76,7 +81,7 @@ public class TimelineController {
         i++;
         
         totalIndex++;
-        
+        timelines.add(timeline);
     }
     
     @FXML

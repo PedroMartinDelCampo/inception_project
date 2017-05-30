@@ -1,0 +1,5 @@
+.selected-timeline {
+    -fx-stroke-width: 2;
+    -fx-stroke: lightblue;
+    -fx-stroke-type: outside;
+}
