@@ -5,7 +5,7 @@
  */
 package inception.controller;
 
-import javafx.animation.Timeline;
+import inception.model.Stimulus;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -15,6 +15,15 @@ import javafx.scene.shape.Rectangle;
 public class TimelineView extends Rectangle {
     private int index;
     private String Label;
+    private Stimulus stimulus;
+
+    public Stimulus getStimulus() {
+        return stimulus;
+    }
+
+    public void setStimulus(Stimulus stimulus) {
+        this.stimulus = stimulus;
+    }
 
     public TimelineView(double width, double height) {
         super(width, height);

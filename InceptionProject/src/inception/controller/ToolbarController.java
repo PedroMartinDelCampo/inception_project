@@ -13,7 +13,6 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -27,6 +26,12 @@ public class ToolbarController implements Initializable {
     
     @FXML
     private HBox toolbar;
+    
+    private TimelineController controller;
+
+    public void setController(TimelineController controller) {
+        this.controller = controller;
+    }
     
     private final PluginManager pluginManager = ServiceContainer.getInstance().getPluginManager();
     
@@ -46,7 +51,7 @@ public class ToolbarController implements Initializable {
             Button createStimulus = new Button(plugin.getLabel());
             createStimulus.setOnAction((ActionEvent event) -> {
                 Stimulus s = plugin.createStimulus();
-                System.out.println("Stimulus: " + s.getClass());
+                controller.addTimeline(s);
             });
             toolbar.getChildren().add(createStimulus);
         });

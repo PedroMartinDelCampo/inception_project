@@ -5,10 +5,27 @@
  */
 package inception.controller;
 
+import javafx.fxml.FXML;
+
 /**
  *
  * @author Humberto
  */
 public class MainController {
+    
+    @FXML
+    private TimelineController timelineController;
+    
+    @FXML
+    private ToolbarController toolbarController;
+    
+    @FXML
+    private PreviewController previewController;
+    
+    @FXML
+    public void initialize() {
+        timelineController.setPreviewController(previewController);
+        toolbarController.setController(timelineController);
+    }
     
 }

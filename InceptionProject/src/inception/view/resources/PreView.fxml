@@ -6,13 +6,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.topAnchor= "0.0" AnchorPane.bottomAnchor= "0.0">
+<Pane AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inception.controller.PreviewController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="152.0" prefWidth="377.0">
-         <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Preview" />
-         </children>
-      </AnchorPane>
+      <AnchorPane id="AnchorPane" fx:id="preview" prefHeight="152.0" prefWidth="377.0" />
    </children>
 </Pane>

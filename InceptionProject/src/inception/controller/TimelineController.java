@@ -5,23 +5,20 @@
  */
 package inception.controller;
 
+import inception.ServiceContainer;
 import inception.model.Frame;
+import inception.model.Stimulus;
 import inception.model.StoryBuilder;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.EventHandler;
+import inception.plugin.Plugin;
+import inception.plugin.PluginManager;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 
 
@@ -35,6 +32,7 @@ public class TimelineController {
     private GridPane timelineGridPane;
     
     private final StoryBuilder builder = StoryBuilder.getInstance();
+    private final PluginManager manager = ServiceContainer.getInstance().getPluginManager();
     
     public int i = 0;
     
@@ -46,17 +44,26 @@ public class TimelineController {
     
     private Label selectedLabel;
     
-    @FXML
-    public void addTimeline(){
+    private PreviewController previewController;
+
+    public void setPreviewController(PreviewController previewController) {
+        this.previewController = previewController;
+    }
+    
+    public void addTimeline(Stimulus s) {
         System.out.println("clicked on add");
         Label nombre = new Label("Timeline " + (i+1));
-        Frame frame = builder.getFrame(frameIndex);
         TimelineView timeline = new TimelineView(TIMELINE_WIDTH, TIMELINE_HEIGHT);
         timeline.setIndex(i);
+        timeline.setStimulus(s);
         timeline.setFill(Color.color(Math.random(), Math.random(), Math.random()));
         timeline.setOnMouseClicked((MouseEvent t) -> {
-            editPropertiesTimeline();   
-            timeline.setFill(Color.RED); 
+            Plugin plugin = manager.findByStimulus(s.getClass());
+            Node preview = plugin.createPreview(s);
+            previewController.setPreview(preview);
+            Node properties = plugin.createPropertiesPane(s);
+            editPropertiesTimeline();
+            timeline.setFill(Color.RED);
             selectedTimeline = timeline;
             selectedLabel = nombre;
             selectedIndex=timeline.getIndex();
@@ -65,7 +72,7 @@ public class TimelineController {
         
         timelineGridPane.add(nombre, 0, i);
         timelineGridPane.add(timeline, 1, i);
-        timelineGridPane.setMargin(timeline, new Insets(0,0,0,0));
+        GridPane.setMargin(timeline, new Insets(0,0,0,0));
         i++;
         
         totalIndex++;

@@ -24,7 +24,6 @@
       </GridPane>
       <HBox layoutX="100.0" layoutY="-23.0" prefHeight="41.0" prefWidth="600.0" spacing="5.0" AnchorPane.bottomAnchor="359.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
          <children>
-            <Button fx:id="newTimelineButton" mnemonicParsing="false" onAction="#addTimeline" text="New Timeline" />
             <Button fx:id="deleteTimelineButton" mnemonicParsing="false" onAction="#deleteTimeline" text="Delete Timeline" />
          </children>
       </HBox>
