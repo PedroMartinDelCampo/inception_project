@@ -23,9 +23,13 @@ public class MainController {
     private PreviewController previewController;
     
     @FXML
+    private FrameController framesController;
+    
+    @FXML
     public void initialize() {
         timelineController.setPreviewController(previewController);
         toolbarController.setController(timelineController);
+        framesController.setTimelineController(timelineController);
     }
     
 }

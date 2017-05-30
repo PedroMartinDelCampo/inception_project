@@ -7,23 +7,18 @@ package inception.controller;
 
 import inception.ServiceContainer;
 import inception.model.Frame;
+import inception.model.Stimulus;
 import inception.model.StoryBuilder;
 import inception.plugin.PluginManager;
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.MediaView;
 import javafx.scene.shape.Rectangle;
 /**
  *
@@ -43,8 +38,11 @@ public class FrameController implements Initializable {
      @FXML
     private Rectangle timeline;
     
-   
-     
+    private TimelineController timelineController;
+
+    public void setTimelineController(TimelineController timelineController) {
+        this.timelineController = timelineController;
+    }
      
     @FXML
     public void addFrame(){
@@ -70,11 +68,9 @@ public class FrameController implements Initializable {
         }
     }
    
-    public void openFrame(int index){
+    public void openFrame(int index) {
         Frame localFrame = builder.selectedFrame();
-        ObservableList timelineList = localFrame.getStimuli();
-        
-        
+        timelineController.openFrame(localFrame);
     }
     
     public void showFrame(){
@@ -102,8 +98,9 @@ public class FrameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listView.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-            builder.selectFrame((int) newValue);
-            showFrame();
+            int index = (int) newValue;
+            builder.selectFrame(index);
+            openFrame(index);
         });
     }   
 }

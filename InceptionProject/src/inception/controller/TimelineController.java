@@ -6,6 +6,7 @@
 package inception.controller;
 
 import inception.ServiceContainer;
+import inception.model.Frame;
 import inception.model.Stimulus;
 import inception.model.StoryBuilder;
 import inception.plugin.Plugin;
@@ -21,8 +22,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
-
-
 /**
  *
  * @author Humberto
@@ -31,21 +30,21 @@ public class TimelineController {
 
     @FXML
     private GridPane timelineGridPane;
-    
+
     private final StoryBuilder builder = StoryBuilder.getInstance();
     private final PluginManager manager = ServiceContainer.getInstance().getPluginManager();
-    
+
     public int i = 0;
-    
+
     private static final double TIMELINE_WIDTH = 100;
     private static final double TIMELINE_HEIGHT = 30;
-    
+
     private TimelineView selectedTimeline;
-    private int selectedIndex,totalIndex=0,frameIndex=0;
+    private int selectedIndex, totalIndex = 0, frameIndex = 0;
     private final ObservableList<TimelineView> timelines = FXCollections.observableArrayList();
-    
+
     private Label selectedLabel;
-    
+
     private PreviewController previewController;
 
     public void setPreviewController(PreviewController previewController) {
@@ -53,8 +52,20 @@ public class TimelineController {
     }
     
     public void addTimeline(Stimulus s) {
+        Frame frame = builder.selectedFrame();
+        if (frame == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("No has seleccionado ningún frame");
+            alert.show();
+            return;
+        }
+        frame.add(s);
         System.out.println("clicked on add");
-        Label nombre = new Label("Timeline " + (i+1));
+        addTimelineToView(s);
+    }
+    
+    private void addTimelineToView(Stimulus s) {
+        Label nombre = new Label("Timeline " + (i + 1));
         TimelineView timeline = new TimelineView(TIMELINE_WIDTH, TIMELINE_HEIGHT);
         timeline.setIndex(i);
         timeline.setStimulus(s);
@@ -71,21 +82,21 @@ public class TimelineController {
             editPropertiesTimeline();
             selectedTimeline = timeline;
             selectedLabel = nombre;
-            selectedIndex=timeline.getIndex();
+            selectedIndex = timeline.getIndex();
             System.out.println("clicked on add" + selectedIndex);
         });
-        
+
         timelineGridPane.add(nombre, 0, i);
         timelineGridPane.add(timeline, 1, i);
-        GridPane.setMargin(timeline, new Insets(0,0,0,0));
+        GridPane.setMargin(timeline, new Insets(0, 0, 0, 0));
         i++;
-        
+
         totalIndex++;
         timelines.add(timeline);
     }
     
     @FXML
-    public void deleteTimeline(){
+    public void deleteTimeline() {
         System.out.println("clicked on delete");
         if (selectedTimeline == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -93,36 +104,42 @@ public class TimelineController {
         } else {
             timelineGridPane.getChildren().remove(selectedTimeline);
             timelineGridPane.getChildren().remove(selectedLabel);
-            
-            }
-            
+        }
+
     }
     
-    public void editPropertiesTimeline(){     
+    public void openFrame(Frame frame) {
+        timelineGridPane.getChildren().clear();
+        i = 0;
+        frame.getStimuli().forEach(s -> {
+            addTimelineToView(s);
+        });
     }
     
-    public void editIntervalTimeline(){
-        timelineGridPane.setMargin(selectedTimeline, new Insets(0,0,0,i));
-        
+    public void editPropertiesTimeline() {
     }
-    
+
+    public void editIntervalTimeline() {
+        timelineGridPane.setMargin(selectedTimeline, new Insets(0, 0, 0, i));
+
+    }
+
     private int getRowCount(GridPane pane) {
         int numRows = pane.getRowConstraints().size();
         for (int i = 0; i < pane.getChildren().size(); i++) {
             Node child = pane.getChildren().get(i);
             if (child.isManaged()) {
                 Integer rowIndex = GridPane.getRowIndex(child);
-                if(rowIndex != null){
-                    numRows = Math.max(numRows,rowIndex+1);
+                if (rowIndex != null) {
+                    numRows = Math.max(numRows, rowIndex + 1);
                 }
             }
         }
         return numRows;
     }
-    
-    public void setFrameIndex(int frameIndex){
-        this.frameIndex= frameIndex;
+
+    public void setFrameIndex(int frameIndex) {
+        this.frameIndex = frameIndex;
     }
-    
-    
+
 }
