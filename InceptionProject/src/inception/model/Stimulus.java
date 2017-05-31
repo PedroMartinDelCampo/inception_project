@@ -17,7 +17,7 @@ import javafx.util.Duration;
 public abstract class Stimulus extends Step implements Animatable {
     
     private Duration start = Duration.ZERO;
-
+    private final Test testCounter= Test.getInstance();
     public Duration getStart() {
         return start;
     }
@@ -34,7 +34,22 @@ public abstract class Stimulus extends Step implements Animatable {
         try {            
             System.out.println("Stimulus initiated");
             Thread.sleep((long) start.toMillis());
-            System.out.println("Stimulus finalized");
+            /*Thread one = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        System.out.println("Does it work?");
+                        
+                        Thread.sleep(1000);
+                        
+                    } catch(InterruptedException v) {
+                        System.out.println(v);
+                    }
+                }
+            };
+
+        one.start();*/
+            testCounter.countStimulus();
             execute();
         } catch (InterruptedException ex) {
             Logger.getLogger(Stimulus.class.getName()).log(Level.SEVERE, null, ex);

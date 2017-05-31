@@ -36,7 +36,12 @@ public class Story implements Animatable {
 
     @Override
     public void play() {
-        executor.start();
+        if(executor.getState()==Thread.State.TERMINATED){
+            executor.run();
+        }else{
+            executor.start();
+        }
+        
     }
 
     @Override
