@@ -104,6 +104,8 @@ public class TimelineController {
         } else {
             timelineGridPane.getChildren().remove(selectedTimeline);
             timelineGridPane.getChildren().remove(selectedLabel);
+            builder.getFrame(frameIndex).remove(selectedIndex);
+            previewController.clear();
         }
 
     }
@@ -111,6 +113,7 @@ public class TimelineController {
     public void openFrame(Frame frame) {
         timelineGridPane.getChildren().clear();
         i = 0;
+        setFrameIndex(builder.getFrames().indexOf(frame));
         frame.getStimuli().forEach(s -> {
             addTimelineToView(s);
         });

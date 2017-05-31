@@ -23,4 +23,8 @@ public class PreviewController {
         preview.getChildren().add(p);
     }
     
+    public void clear(){
+        preview.getChildren().clear();
+    }
+    
 }
