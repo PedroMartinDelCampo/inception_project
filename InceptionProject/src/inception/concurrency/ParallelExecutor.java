@@ -19,7 +19,7 @@ public class ParallelExecutor extends GroupExecutor {
     public synchronized void run() {
         List<Step> steps = getSteps();
         steps.forEach(step -> {
-            step.start();
+            step.run();
         });
         lock.lock();
         try {

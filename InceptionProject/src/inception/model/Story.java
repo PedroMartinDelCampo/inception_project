@@ -36,10 +36,7 @@ public class Story implements Animatable {
 
     @Override
     public void play() {
-        //executor.start();
-        for (Frame frame : frames) {
-            frame.play();
-        }
+        executor.start();
     }
 
     @Override
