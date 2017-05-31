@@ -61,4 +61,8 @@ public class StoryBuilder {
         return story.getFrames().get(index);
     }
     
+    public void playStory(){
+        story.play();
+    }
+    
 }

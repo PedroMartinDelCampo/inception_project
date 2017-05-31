@@ -85,7 +85,7 @@ public class FrameController implements Initializable {
             alert.setContentText("No has seleccionado ningun frame");
             alert.show();
         }
-        else{
+        else if(!frame.isEmpty()){
             frame.play();
         }
     }

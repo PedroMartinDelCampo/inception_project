@@ -6,6 +6,7 @@
 package inception.model;
 
 import inception.concurrency.BatchExecutor;
+import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -35,7 +36,10 @@ public class Story implements Animatable {
 
     @Override
     public void play() {
-        executor.start();
+        //executor.start();
+        for (Frame frame : frames) {
+            frame.play();
+        }
     }
 
     @Override

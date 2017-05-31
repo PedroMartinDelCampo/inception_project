@@ -21,6 +21,7 @@ public class Frame implements Animatable {
     
     @Override
     public void play() {
+        System.out.println("FrameStarted");
         executor.start();
     }
 
@@ -51,6 +52,10 @@ public class Frame implements Animatable {
     
      public int selectedTimeline(int i){
         return i;
+    }
+     
+    public boolean isEmpty(){
+        return stimuli.isEmpty();
     }
      
      

@@ -7,6 +7,7 @@ package inception.controller;
 
 import inception.ServiceContainer;
 import inception.model.Stimulus;
+import inception.model.StoryBuilder;
 import inception.plugin.Plugin;
 import inception.plugin.PluginManager;
 import java.net.URL;
@@ -26,6 +27,7 @@ public class ToolbarController implements Initializable {
     
     @FXML
     private HBox toolbar;
+    private final StoryBuilder builder = StoryBuilder.getInstance();
     
     private TimelineController controller;
 
@@ -38,6 +40,7 @@ public class ToolbarController implements Initializable {
     
     public void play(){
         System.out.println("clicked on play story");
+        builder.playStory();
     }
     
     public void stop(){
