@@ -30,14 +30,14 @@ public abstract class Stimulus extends Step implements Animatable {
     
     @Override
     public final void play() {
-        System.out.println("Stimulus play");
-        /*try {
+       
+        try {
             Thread.sleep((long) start.toMillis());
-            
+            System.out.println("Stimulus play");
             execute();
         } catch (InterruptedException ex) {
             Logger.getLogger(Stimulus.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }
     
     @Override
