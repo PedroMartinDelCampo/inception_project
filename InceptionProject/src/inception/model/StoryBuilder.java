@@ -65,4 +65,8 @@ public class StoryBuilder {
         story.play();
     }
     
+    public void stopStory(){
+        story.end();
+    }
+    
 }

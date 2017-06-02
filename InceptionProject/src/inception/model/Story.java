@@ -6,7 +6,7 @@
 package inception.model;
 
 import inception.concurrency.BatchExecutor;
-import java.util.Iterator;
+import java.lang.Thread.State;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -36,7 +36,8 @@ public class Story implements Animatable {
 
     @Override
     public void play() {
-        if(executor.getState()==Thread.State.TERMINATED){
+        State threadState= executor.getState();
+        if(threadState==Thread.State.TERMINATED||threadState== Thread.State.WAITING){
             executor.run();
         }else{
             executor.start();

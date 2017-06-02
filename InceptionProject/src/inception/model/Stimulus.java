@@ -34,24 +34,10 @@ public abstract class Stimulus extends Step implements Animatable {
         try {            
             System.out.println("Stimulus initiated");
             Thread.sleep((long) start.toMillis());
-            /*Thread one = new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        System.out.println("Does it work?");
-                        
-                        Thread.sleep(1000);
-                        
-                    } catch(InterruptedException v) {
-                        System.out.println(v);
-                    }
-                }
-            };
-
-        one.start();*/
             testCounter.countStimulus();
             execute();
         } catch (InterruptedException ex) {
+            System.out.println("Current thread stopped ");
             Logger.getLogger(Stimulus.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

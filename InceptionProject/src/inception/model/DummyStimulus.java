@@ -22,13 +22,13 @@ public class DummyStimulus extends Stimulus {
 
     @Override
     public void execute() {
-        System.out.println("Play");
+        System.out.println("Dummy Stimulus Started");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(3000);
         } catch (InterruptedException ex) {
             Logger.getLogger(DummyStimulus.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Done");
+        System.out.println("Dummy Stimulus Finalized");
     }
 
     @Override

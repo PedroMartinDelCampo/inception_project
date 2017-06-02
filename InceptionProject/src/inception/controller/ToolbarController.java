@@ -45,6 +45,7 @@ public class ToolbarController implements Initializable {
     
     public void stop(){
         System.out.println("clicked on stop story");
+        builder.stopStory();
     }
     
     @Override

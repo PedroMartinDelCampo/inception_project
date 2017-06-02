@@ -18,11 +18,16 @@ public class Frame implements Animatable {
 
     private final ObservableList<Stimulus> stimuli = FXCollections.observableArrayList();
     private final ParallelExecutor executor = new ParallelExecutor();
+    private int frameNumber; 
     
     @Override
     public void play() {
-        System.out.println("FrameStarted");
-        executor.start();
+        Thread.State threadState= executor.getState();
+        if(threadState==Thread.State.TERMINATED||threadState == Thread.State.WAITING){
+            executor.run();
+        }else{
+            executor.start();
+        }
     }
 
     @Override
@@ -56,6 +61,10 @@ public class Frame implements Animatable {
      
     public boolean isEmpty(){
         return stimuli.isEmpty();
+    }
+    
+    public void setFrameNumber(int frameNumber){
+        this.frameNumber=frameNumber;
     }
      
      
